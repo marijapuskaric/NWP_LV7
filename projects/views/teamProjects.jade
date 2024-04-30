@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  body
+    h1 Team Projects
+    if projects.length > 0
+      table.table
+        thead
+          tr
+            th Name
+            th Description
+            th Price
+            th Finished Tasks
+            th Start Date
+            th End Date
+            th Members
+            th Actions
+        tbody
+          each project in projects
+            tr
+              td= project.name
+              td= project.description
+              td= project.price
+              td= project.finishedTasks
+              td= project.start_date
+              td= project.end_date
+              td
+                if project.members && project.members.length > 0
+                  ul
+                    each member in project.members
+                      li
+                        div.member
+                          span= member.name
+                else
+                  span No members
+              td
+                form(action='/edit-project/#{project._id}', method='GET', enctype='application/x-www-form-urlencoded')
+                  button.edit-btn(type="submit") Edit
+    else
+      p No projects available.

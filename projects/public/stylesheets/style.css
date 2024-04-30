@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 16px "Arial", sans-serif;
+  line-height: 1.5;
+}
+
+.content-container{
+  padding: 50px;
+}
+
+.container{
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #2c3e50;
+  color: #ffffff; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-title{
+  padding: 10px;
+  margin-right: 20px;
+}
+.nav-item {
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #2980b9;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+
+a {
+  color: #00B7FF;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+a button {
+  background-color: #28a745;
+}
+
+a button:hover {
+  background-color: #218838;
+}
+
+.edit-btn {
+  background-color: #28a745;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.member{
+  flex: 1;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+select,
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container textarea,
+.form-container input[type="date"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-container button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    body
+        .form-container
+            h2 Edit Project
+            form(action='/edit-project/#{project._id}', method='POST', enctype='application/x-www-form-urlencoded')
+                input(type="text", id="_id", name="_id", value=project._id, hidden)
+                label(for="name") Name:
+                input(type="text", id="name", name="name", value=project.name, disabled=manager ? false : true)
+                label(for="description") Description:
+                textarea(id="description", name="description", rows="4", cols="50", disabled=manager ? false : true)= project.description
+                label(for="price") Price:
+                input(type="number", id="price", name="price", min="0", step="0.01", value=project.price, disabled=manager ? false : true)
+                label(for="finishedTasks") Finished Tasks:
+                input(type="text", id="finishedTasks", name="finishedTasks", value=project.finishedTasks)
+                label(for="startDate") Start Date:
+                input(type="date", id="startDate", name="startDate", value=startDate, disabled=manager ? false : true)
+                label(for="endDate") End Date:
+                input(type="date", id="endDate", name="endDate", value=endDate, disabled=manager ? false : true)
+                button(type="submit") Update Project
+            

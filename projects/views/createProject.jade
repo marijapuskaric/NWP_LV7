@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  body
+    .form-container
+      h2 Create New Project
+      form(method="POST" action="/create-project")
+        label(for="name") Name:
+        input(type="text" id="name" name="name" required)
+        label(for="description") Description:
+        textarea(id="description" name="description" rows="4" cols="50" required)
+        label(for="price") Price:
+        input(type="number" id="price" name="price" min="0" step="0.01" required)
+        label(for="finishedTasks") Finished Tasks:
+        input(type="text" id="finishedTasks" name="finishedTasks"  required)
+        label(for="startDate") Start Date:
+        input(type="date" id="startDate" name="startDate" required)
+        label(for="endDate") End Date:
+        input(type="date" id="endDate" name="endDate" required)
+        button(type="submit") Create Project

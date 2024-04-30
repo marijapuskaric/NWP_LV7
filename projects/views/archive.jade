@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  body
+    h1 My Archived Projects
+    if myProjects.length > 0
+      table.table
+        thead
+          tr
+            th Name
+            th Description
+            th Price
+            th Finished Tasks
+            th Start Date
+            th End Date
+            th Members
+            th Actions
+        tbody
+          each project in myProjects
+            tr
+              td= project.name
+              td= project.description
+              td= project.price
+              td= project.finishedTasks
+              td= project.start_date
+              td= project.end_date
+              td
+                if project.members && project.members.length > 0
+                  ul
+                    each member in project.members
+                      li
+                        div.member
+                          span= member.name
+                else
+                  span No members
+              td
+                form(action='/delete-project/#{project._id}', method='POST', enctype='application/x-www-form-urlencoded')
+                  button.delete-btn(type="submit") Delete
+                form(action='/remove-from-archive/#{project._id}', method='POST', enctype='application/x-www-form-urlencoded')
+                  button(type="submit") Remove from archive
+    else
+      p No projects available.
+
+    h1 Archived Team Projects
+    if teamProjects.length > 0
+      table.table
+        thead
+          tr
+            th Name
+            th Description
+            th Price
+            th Finished Tasks
+            th Start Date
+            th End Date
+            th Members
+            th Actions
+        tbody
+          each project in teamProjects
+            tr
+              td= project.name
+              td= project.description
+              td= project.price
+              td= project.finishedTasks
+              td= project.start_date
+              td= project.end_date
+              td
+                if project.members && project.members.length > 0
+                  ul
+                    each member in project.members
+                      li
+                        div.member
+                          span= member.name
+                else
+                  span No members
+              td
+    else
+      p No projects available.

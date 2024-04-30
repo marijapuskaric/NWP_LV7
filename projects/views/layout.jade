@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div.container
+      ul.navbar
+        div.navbar
+          h2.nav-title Project manager
+          if (isLoggedIn)
+            li.nav-item
+              a.nav-link(href="/") My Projects
+            li.nav-item
+              a.nav-link(href="/team-projects") Team Projects
+            li.nav-item
+              a.nav-link(href="/archive") Archive
+        div.navbar
+          if (!isLoggedIn)
+            li.nav-item
+              a.nav-link(href="/register") Register
+            li.nav-item
+              a.nav-link(href="/login") Login
+          else
+            li.nav-item
+              p.nav-link= username
+            li.nav-item
+              a.nav-link(href="/logout") Logout
+    div.content-container
+      block content

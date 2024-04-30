@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  body
+    h1 My Projects
+    a(href="/create-project") 
+        button(type="button") Create new project
+    if projects.length > 0
+      table.table
+        thead
+          tr
+            th Name
+            th Description
+            th Price
+            th Finished Tasks
+            th Start Date
+            th End Date
+            th Members
+            th Actions
+        tbody
+          each project in projects
+            tr
+              td= project.name
+              td= project.description
+              td= project.price
+              td= project.finishedTasks
+              td= project.start_date
+              td= project.end_date
+              td
+                if project.members && project.members.length > 0
+                  ul
+                    each member in project.members
+                      li
+                        div.member
+                          span= member.name
+                        if member && member._id
+                          form(action='/delete-projectUser/#{member._id}', method='POST', enctype='application/x-www-form-urlencoded')
+                            input(type="text" id="projectId" name="projectId" value=project._id hidden)
+                            button.delete-btn(type="submit") Delete
+                else
+                  span No members
+              td
+                form(action='/edit-project/#{project._id}', method='GET', enctype='application/x-www-form-urlencoded')
+                  button.edit-btn(type="submit") Edit
+                form(action='/delete-project/#{project._id}', method='POST', enctype='application/x-www-form-urlencoded')
+                  button.delete-btn(type="submit") Delete
+                form(action='/add-teammember/#{project._id}', method='GET', enctype='application/x-www-form-urlencoded')
+                  button(type="submit") Add team member
+                form(action='/archive/#{project._id}', method='POST', enctype='application/x-www-form-urlencoded')
+                  button(type="submit") Archive
+    else
+      p No projects available.
